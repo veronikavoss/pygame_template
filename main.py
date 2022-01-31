@@ -1,12 +1,11 @@
-#%%
 from setting import *
 from controller import *
-#%%
+
 class Game:
     def __init__(self):
         pygame.init()
-        pygame.display.set_caption(title)
-        self.screen=pygame.display.set_mode(screen_size)
+        pygame.display.set_caption(TITLE)
+        self.screen=pygame.display.set_mode(SCREEN_SIZE)
         self.clock=pygame.time.Clock()
         self.start_screen=True
         self.playing=True
@@ -18,11 +17,11 @@ class Game:
     
     def loop(self):
         while self.playing:
+            self.dt=self.clock.tick(FPS)
             self.events()
             self.update()
             self.draw()
             pygame.display.update()
-            self.clock.tick(FPS)
     
     def events(self):
         for event in pygame.event.get():
@@ -35,8 +34,7 @@ class Game:
         self.controller.update()
     
     def draw(self):
-        self.screen.fill('white')
         self.controller.draw()
-#%%
-game=Game()
+
+Game()
 pygame.quit()

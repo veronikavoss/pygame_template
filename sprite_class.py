@@ -1,6 +1,11 @@
-#%%
 from setting import *
-#%%
-class Sprite(pygame.sprite.Sprite):
+
+class SurfaceSprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
+        self.image=pygame.Surface((30,40))
+        self.image.fill('blue')
+        self.rect=self.image.get_rect()
+    
+    def update(self):
+        pass
