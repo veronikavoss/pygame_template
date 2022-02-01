@@ -8,7 +8,7 @@ class Game:
         self.screen=pygame.display.set_mode(SCREEN_SIZE)
         self.clock=pygame.time.Clock()
         self.start_screen=True
-        self.playing=True
+        self.running=True
         self.start()
     
     def start(self):
@@ -16,7 +16,7 @@ class Game:
         self.loop()
     
     def loop(self):
-        while self.playing:
+        while self.running:
             self.dt=self.clock.tick(FPS)
             self.events()
             self.update()
@@ -26,8 +26,8 @@ class Game:
     def events(self):
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
-                if self.playing:
-                    self.playing=False
+                if self.running:
+                    self.running=False
                     break
     
     def update(self):

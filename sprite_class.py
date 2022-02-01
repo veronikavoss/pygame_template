@@ -7,5 +7,8 @@ class SurfaceSprite(pygame.sprite.Sprite):
         self.image.fill('blue')
         self.rect=self.image.get_rect()
     
+    def move(self):
+        pass
+    
     def update(self):
         pass
