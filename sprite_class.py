@@ -11,6 +11,9 @@ class SurfaceSprite(pygame.sprite.Sprite):
         self.speed=5
         self.load=load
     
+    def set_rect(self,topleft):
+        self.rect=self.image.get_rect(topleft=topleft)
+    
     def set_key_input(self):
         if self.load:
             key_input=pygame.key.get_pressed()
