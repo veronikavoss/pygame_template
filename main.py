@@ -28,7 +28,6 @@ class Game:
             if event.type==pygame.QUIT:
                 if self.running:
                     self.running=False
-                    break
     
     def update(self):
         self.controller.update()
