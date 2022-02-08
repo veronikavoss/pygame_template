@@ -5,7 +5,7 @@ class Controller:
     def __init__(self,screen):
         self.screen=screen
         
-        self.surface_sprite1=SurfaceSprite((0,0),True)
+        self.surface_sprite1=SurfaceSprite((SCREEN_WIDTH//2,SCREEN_HEIGHT//2))
         self.surface_sprite2=SurfaceSprite((SCREEN_WIDTH-30,0))
         self.surface_sprite_group=pygame.sprite.Group(self.surface_sprite2)
     
@@ -15,14 +15,17 @@ class Controller:
         for i in self.surface_sprite_group:
             if pygame.sprite.collide_mask(i,self.surface_sprite1):
                 print('c')
-                self.surface_sprite1.set_rect((0,0))
+                self.surface_sprite1=None
+                
     
     def update(self):
         self.surface_sprite_group.update()
-        self.surface_sprite1.update()
-        self.collision()
+        if self.surface_sprite1:
+            self.surface_sprite1.update()
+            self.collision()
     
     def draw(self):
         self.screen.fill('white')
         self.surface_sprite_group.draw(self.screen)
-        self.surface_sprite1.draw(self.screen)
+        if self.surface_sprite1:
+            self.surface_sprite1.draw(self.screen)
